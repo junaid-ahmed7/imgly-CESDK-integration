@@ -9,14 +9,16 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.jahmedpen.imglytest"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.jahmedpen.imglytest"
     },
     "web": {
       "bundler": "metro",
@@ -24,6 +26,19 @@
       "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
+      [
+        "expo-build-properties",
+        {
+          "android": {
+            "minSdkVersion": 24,
+            "extraMavenRepos": ["https://artifactory.img.ly/artifactory/maven"],
+            "kotlinVersion": "1.9.10"
+          },
+          "ios": {
+            "deploymentTarget": "16.0"
+          }
+        }
+      ],
       "expo-router",
       [
         "expo-splash-screen",
@@ -33,7 +48,8 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-build-properties"
     ],
     "experiments": {
       "typedRoutes": true
